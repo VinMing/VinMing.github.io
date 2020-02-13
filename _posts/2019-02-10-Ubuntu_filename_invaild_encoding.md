@@ -24,8 +24,6 @@ ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
 
 文件是在WIndows下创建的,Windows 的文件名中文编码默认为GBK,而Linux中默认文件名编码为UTF8,由于编码不一致所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。
 
----
-
 安装：
 
 ``` shell
