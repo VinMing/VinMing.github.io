@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Delet file after push github within git dir
-subtitle:    "\"在git目录下删除放在远程仓库的文件""
+title:      在git目录下删除放在远程仓库的文件
+subtitle:    "\"在本地git目录下删除远程git仓库的文件""
 date:       2020-02-10
 author:     Stephen
 header-img: img/post-bg-2015.jpg
