@@ -15,7 +15,7 @@ tags:
 
 ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
 
-![Image text](../img/Ubuntu_filename_home.png)
+![Image text](/img/Ubuntu_filename_home.png)
 
 
 
@@ -51,11 +51,11 @@ convmv -f 源编码 -t 新编码 [选项] 文件名
 
 注意:转换成功之后,在window下访问修改过文件夹是无法访问的,但是文件内部是完整无损.
 
-![Image text](../img/Ubuntu_filename_houji.png)
+![Image text](/img/Ubuntu_filename_houji.png)
 
 只能在ubuntu下才能访问
 
-![Image text](../img/Ubuntu_filename_fix_after.png)
+![Image text](/img/Ubuntu_filename_fix_after.png)
 
 
 

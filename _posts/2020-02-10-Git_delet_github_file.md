@@ -17,10 +17,12 @@ tags:
 总的一句话:在github上只能删除仓库,却无法删除文件夹或文件, 所以只能通过命令来解决 .
 
 ## 正文
+
 1. 将远程仓库里面的项目拉下来
 ```bash
 git pull origin master 
 ```
+
 2. 预览将要删除的文件(这个时候在你的本地是没有该文件的)
 ```bash
 git rm -r -n --cached /your/path
