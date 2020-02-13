@@ -47,7 +47,7 @@ deb http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu xenial main
 # deb-src http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu xenial main
 ```
 
-3最后再更新即可
+3.最后再更新即可
 
 ```shell
 sudo apt-get update
