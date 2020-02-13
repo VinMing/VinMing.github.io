@@ -14,13 +14,14 @@ tags:
 #### 前言
 
 Ubuntu16.04安装shadowSocks-qt5正常步骤是这样的
+
 ```shell
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
 sudo apt-get update
 sudo apt-get install shadowsocks-qt5
 ```
-但是在18.04中出现了问题
 
+但是在18.04中出现了问题
 
 ```cmd
 Err:8 http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu bionic Release           
@@ -33,6 +34,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 原因：ppa:hzwhuang/ss-qt5 并没有18.04版本的源
 
 #### 解决方法
+
 
 1. 修改sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list的内容
 ``` shell
