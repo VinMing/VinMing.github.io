@@ -34,11 +34,15 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 
 ## 解决方法
 
+
+
 1.修改sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list的内容
 
 ``` shell
 sudo gedit /etc/apt/sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list
 ```
+
+
 2.将bionic(18.04版本代号)改成xenial(16.04版本代号)
 
 ```shell
@@ -46,6 +50,8 @@ deb http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu xenial main
 # deb-src http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu xenial main
 # deb-src http://ppa.launchpad.net/hzwhuang/ss-qt5/ubuntu xenial main
 ```
+
+
 
 3.最后再更新即可
 
