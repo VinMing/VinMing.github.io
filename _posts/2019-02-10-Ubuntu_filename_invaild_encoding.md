@@ -11,7 +11,7 @@ tags:
 ---
 
 
-#### 前言
+## 前言
 
 ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
 
@@ -20,7 +20,7 @@ ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
 
 
 
-### 正文
+## 正文
 
 文件是在WIndows下创建的,Windows 的文件名中文编码默认为GBK,而Linux中默认文件名编码为UTF8,由于编码不一致所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。
 
@@ -41,7 +41,7 @@ sudo convmv -f gbk -t utf-8 -r --notest /your/path
 ```
 
 
-### 后记
+## 后记
 
 注意:转换成功之后,在window下访问修改过文件夹是无法访问的,但是文件内部是完整无损.
 

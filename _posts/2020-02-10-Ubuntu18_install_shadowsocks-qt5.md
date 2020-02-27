@@ -11,7 +11,7 @@ tags:
 ---
 
 
-#### 前言
+## 前言
 
 Ubuntu16.04安装shadowSocks-qt5正常步骤是这样的
 
@@ -33,7 +33,7 @@ N: See apt-secure(8) manpage for repository creation and user configuration deta
 ```
 原因：ppa:hzwhuang/ss-qt5 并没有18.04版本的源
 
-#### 解决方法
+## 解决方法
 
 
 1. 修改sources.list.d/hzwhuang-ubuntu-ss-qt5-bionic.list的内容
