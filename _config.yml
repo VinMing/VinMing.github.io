@@ -98,10 +98,11 @@ service-worker: true
 
 # Friends
 friends: [
-    # {
-    #     title: "Apple",
-    #     href: "https://apple.com"
-    # },{
+    {
+        title: "fanjunyu",
+        href: "fanjunyu.com"
+    },
+    {
     #     title: "Apple Developer",
     #     href: "https://developer.apple.com/"
     # }

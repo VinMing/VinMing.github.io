@@ -22,8 +22,6 @@ BY 的 Blog 就这么开通了。
 
 [跳过废话，直接看技术实现 ](#build) 
 
-<p id = "build"></p>
----
 
 ## 正文
 
@@ -41,9 +39,6 @@ BY 的 Blog 就这么开通了。
 
 
 
----
-
-
 主题我直接 Downlosd 了 [Hux的博客主题](https://huangxuan.me/) 的进行修改，简单粗暴，不过遇到了很多坑😂，好在都填完了。。。
 
 本地调试环境需要 `gem install jekyll`，结果 rubygem 的源居然被墙了，~~后来手动改成了我大淘宝的镜像源才成功~~，淘宝的源已经[停止维护](https://gems.ruby-china.org/)，换成了OSChina的源 `https://gems.ruby-china.org/`。
@@ -53,4 +48,4 @@ BY 的 Blog 就这么开通了。
 
 @[TOC](这里写自定义目录标题)
 
----
+
