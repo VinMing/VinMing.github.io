@@ -101,8 +101,8 @@ friends: [
     {
         title: "fanjunyu",
         href: "fanjunyu.com"
-    },
-    {
+    }
+    # ,{
     #     title: "Apple Developer",
     #     href: "https://developer.apple.com/"
     # }
