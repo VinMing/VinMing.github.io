@@ -100,7 +100,7 @@ service-worker: true
 friends: [
     {
         title: "fanjunyu",
-        href: "fanjunyu.com"
+        href: "https://fanjunyu.com"
     }
     # ,{
     #     title: "Apple Developer",
