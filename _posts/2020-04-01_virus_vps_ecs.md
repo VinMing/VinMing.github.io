@@ -7,11 +7,12 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - 
-
+    - vps
+    - ecs
+    - virtual Host
 ---
 
-https://www.cnblogs.com/developer-qin/p/10096113.html
+
 
 ## 前言
 科普：虚拟主机、VPS、ECS云服务器 区别
@@ -50,3 +51,6 @@ VPS因为是在物理服务器上运行的,一旦这台物理服务器出现故�
 
 现在的主流的服务器解决方案，一般理解云服务器和VPS一样，同样是虚拟化的技术虚拟出来的服务器。也有人说以前的VPS就是现在的ECS，其实不然，云服务器是一个计算，网络，存储的组合。简单点说就是通过多个CPU，内存，硬盘组成的计算池和存储池和网络的组合；在这样的平台上虚拟出的服务器，用户可以根据自己的运算需要选择配置不同的云服务器。具体区别总结如下：
 ![Image text](/img/virus_vps_ecs_diff.png)
+
+## 引用
+https://www.cnblogs.com/developer-qin/p/10096113.html

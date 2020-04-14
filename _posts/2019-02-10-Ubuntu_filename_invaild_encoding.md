@@ -10,7 +10,7 @@ tags:
     - ubuntu
 ---
 ## 环境
-### 系统环境
+#### 系统环境
 ```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
