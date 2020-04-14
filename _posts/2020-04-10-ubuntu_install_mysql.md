@@ -15,21 +15,17 @@ tags:
 ### 系统环境
 ```text
 Distributor ID:	Ubuntu
-
 Description:	Ubuntu 18.04.4 LTS
-
 Release:	18.04
-
 Codename:	bionic
-
 Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
-
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
 
 ### 软件信息
 ```text
-version : 	mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
+version : 	
+     mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
 ```
 ## 前言
 这里是Ubuntu 18.04的mysql安装教程，ubuntu低版本或其他非Debian的Linux发行版可能不适用。
