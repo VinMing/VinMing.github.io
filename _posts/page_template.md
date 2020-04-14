@@ -20,7 +20,6 @@ Codename:	bionic
 Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
-
 #### 软件信息
 ```text
 version : 	

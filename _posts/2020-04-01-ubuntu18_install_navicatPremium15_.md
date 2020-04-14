@@ -13,7 +13,7 @@ tags:
 ---
 
 ## 环境
-### 系统环境
+#### 系统环境
 ```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
@@ -23,7 +23,7 @@ Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 )
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
 
-### 软件信息
+#### 软件信息
 ```text
 version : 	Navicat Premium 15.0.8
 ```
@@ -55,7 +55,7 @@ sudo make install
 sudo ldconfig
 ```
 运行../make-share.sh　可能出现的bug: **CMake错误No CMAKE_CXX_COMPILER could be found**，[解决办法](https://vinming.github.io/2020/04/02/CMAKE_CXX_COMPILER_Err_/)
-安装rapidjson
+### 3.   安装rapidjson
 ```sh
 sudo apt-get install rapidjson-dev
 ```

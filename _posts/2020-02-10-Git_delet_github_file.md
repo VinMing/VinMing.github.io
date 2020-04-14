@@ -10,7 +10,7 @@ tags:
     - Git
 ---
 ## 环境
-### 系统环境
+#### 系统环境
 ```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
@@ -20,7 +20,7 @@ Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 )
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
 
-### 软件信息
+#### 软件信息
 ```text
 git version:   2.17.1
 
