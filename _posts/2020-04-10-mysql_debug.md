@@ -55,19 +55,18 @@ ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 这是liux套接字网络的特性，win平台不会有这个问题
 ### 解决方案
 在/etc/mysql/my.cnf文件追加 "[mysql] protocol=tcp"
-```sh
-#
+```cnf
 # * IMPORTANT: Additional settings that can override those from this file!
 #   The files must end with '.cnf', otherwise they'll be ignored.
-#
-
 !includedir /etc/mysql/conf.d/
 !includedir /etc/mysql/mysql.conf.d/
 # 追加内容
 [mysql]
 protocol=tcp
 ```
+
 ### 效果
+
 ```sh
 mysql -u root -p
 Enter password: 
