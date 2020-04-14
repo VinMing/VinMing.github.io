@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Hello 2020
+title:      Ubuntu install Redis Desktop Manager
 subtitle:    "\"Ubuntu install Redis Desktop Manager\""
 date:       2020-04-13
 author:     Stephen
