@@ -12,15 +12,22 @@ tags:
 ---
 ## 环境
 ### 系统环境
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
 Release:	18.04
 Codename:	bionic
-Linux version :       5.3.0-46-generic(buildd@lcy01-amd64-013) 
-Gcc version:         7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
+Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
+Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
+```
+
 ### 软件信息
-version : 	cmake version 3.10.2
+```text
+version : 	
+     version : 	cmake version 3.10.2
                     CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+```
 
 
 
@@ -48,6 +55,7 @@ CMake Error at CMakeLists.txt:5 (project):
   to the compiler, or to the compiler name if it is in the PATH.
 
 ```
+
 ###　解决办法
 ```sh
 sudo apt-get update

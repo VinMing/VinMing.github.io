@@ -12,16 +12,20 @@ tags:
 ---
 ## 环境
 ### 系统环境
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
 Release:	18.04
 Codename:	bionic
-Linux version :       5.3.0-46-generic(buildd@lcy01-amd64-013) 
-Gcc version:         7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
-### 软件信息
-version:    mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
-Server version:    5.7.29-0ubuntu0.18.04.1 (Ubuntu)
+Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
+Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
+```
 
+### 软件信息
+```text
+version : 	
+     mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
+```
 ## 前言
 
 ### debug 收集
@@ -60,10 +64,8 @@ ERROR 1698 (28000): Access denied for user 'root'@'localhost'
 !includedir /etc/mysql/conf.d/
 !includedir /etc/mysql/mysql.conf.d/
 # 追加内容
-# -----------------------
 [mysql]
 protocol=tcp
-# -----------------------
 ```
 ### 效果
 ```sh

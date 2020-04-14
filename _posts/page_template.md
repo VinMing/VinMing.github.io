@@ -12,20 +12,20 @@ tags:
 ---
 ## 环境
 ### 系统环境
-
-``` text
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
 Release:	18.04
 Codename:	bionic
-Linux version :       5.3.0-46-generic(buildd@lcy01-amd64-013) 
-Gcc version:         7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
+Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
+Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
 
 ### 软件信息
+```text
 version : 	
-
-
+     
+```
 
 ## 前言
 

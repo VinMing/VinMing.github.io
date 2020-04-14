@@ -14,30 +14,36 @@ tags:
 
 ## 环境
 ### 系统环境
+```text
 Distributor ID:	Ubuntu
 Description:	Ubuntu 18.04.4 LTS
 Release:	18.04
 Codename:	bionic
-Linux version :       5.3.0-46-generic(buildd@lcy01-amd64-013) 
-Gcc version:         7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)
+Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
+Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
+```
+
 ### 软件信息
+```text
 version : 	Navicat Premium 15.0.8
+```
 
 ## 相关工具
+```text
 navicat15-premium-cs.AppImage：Navicat 15 premium 官方简体中文试用版
 navicat-patcher：补丁
 navicat-keygen ：注册机
 appimagetool-x86_64.AppImage：Linux 独立运行软件打包工具
-
-相关[工具百度网盘下载地址](https://pan.baidu.com/s/1u01pL0Fz7A0L1sfvU6_ZHg#list/path=%2F) 『提取码』：jjtr
+```
+相关[工具百度网盘下载地址](https://pan.baidu.com/s/1u01pL0Fz7A0L1sfvU6_ZHg#list/path=%2F) 『提取码』：2xat
 
 ## 系统环境配置
-安装capstone
+### 1.  安装capstone
 
 ```sh
 sudo apt-get install libcapstone-dev
 ```
-安装keystone
+### 2.  安装keystone
 ```sh
 sudo apt-get install cmake
 git clone https://github.com/keystone-engine/keystone.git
@@ -48,26 +54,26 @@ cd build
 sudo make install
 sudo ldconfig
 ```
-运行../make-share.sh　可能出现的bug: **CMake错误No CMAKE_CXX_COMPILER could be found**，[解决办法]()
+运行../make-share.sh　可能出现的bug: **CMake错误No CMAKE_CXX_COMPILER could be found**，[解决办法](https://vinming.github.io/2020/04/02/CMAKE_CXX_COMPILER_Err_/)
 安装rapidjson
 ```sh
 sudo apt-get install rapidjson-dev
 ```
 ## 操作步骤
-###  赋予执行权限
+### 1.  赋予执行权限
 ```sh
 chmod +x appimagetool-x86_64.AppImage
 chmod +x navicat-patcher
 chmod +x navicat-keygen
 ```
-### 解包官方软件
+### 2.  解包官方软件
 ```sh
 mkdir navicat15
 mount -o loop navicat15-premium-cs.AppImage navicat15
 cp -r navicat15 navicat15-patched
 ```
 
-### 运行补丁
+### 3.  运行补丁
 ```sh
 ./navicat-patcher navicat15-patched
 ```
@@ -94,7 +100,7 @@ Press ENTER to continue or Ctrl + C to abort.
 
 
 
-### 打包成独立运行软件
+### 4.  打包成独立运行软件
 
 ```sh
 ./appimagetool-x86_64.Appimage navicat15 navicat15-premium-cs-pathed.AppImage
@@ -114,12 +120,12 @@ central directory of available AppImages, by opening a pull request
 at https://github.com/AppImage/appimage.github.io
 
 ```
-### 运行补丁后软件包
+### 5.  运行补丁后软件包
 ```sh
 chmod +x navicat15-premium-cs-pathed.AppImage
 ./navicat15-premium-cs-pathed.AppImage
 ```
-### 运行注册机
+### 6.  运行注册机
 
 ```sh
 ./navicat-keygen --text ./RegPrivateKey.pem 
@@ -211,4 +217,4 @@ NAVC-BDAP-LC2M-4HER
 
 ```
 
-done
+### done
