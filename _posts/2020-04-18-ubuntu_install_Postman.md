@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      ubuntu install Postman
+title:      Ubuntu install Postman
 subtitle:    "\"Ubuntu Install Postman\""
 date:       2020-04-18
 author:     Stephen

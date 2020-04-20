@@ -30,7 +30,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 #### 软件信息
 ```text
 git version:   2.17.1
-
 ```
 
 

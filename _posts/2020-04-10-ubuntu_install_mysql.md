@@ -9,7 +9,6 @@ catalog: true
 tags:
     - Ubuntu
     - Mysql
-
 ---
 
 ## 前言

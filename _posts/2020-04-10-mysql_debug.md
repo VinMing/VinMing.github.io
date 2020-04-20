@@ -8,7 +8,6 @@ header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
     - Mysql
-
 ---
 
 ## 前言
