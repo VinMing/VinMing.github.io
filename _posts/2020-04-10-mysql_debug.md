@@ -45,7 +45,8 @@ ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (111)
 **3**
 
 ```sh
-ERROR 1698 (28000): Access denied for user 'root'@'localhost'
+$ mysql -h 127.0.0.1 -u root
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
 ```
 
 ## 正文
