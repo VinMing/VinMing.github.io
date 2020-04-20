@@ -1,23 +1,23 @@
 ---
 layout:     post
-title:      navicat premium 12 for linux and windows
+title:      Navicat Premium 12 for Linux and Windows
 subtitle:    "\"navicat premium 12 for linux and windows\""
 date:       2020-03-07
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - navicat
-    - linux
-    - windows
+    - Navicat Premium 12
+    - Linux
+    - Windows
 
 ---
 ## 前言
-navicat premium12 for linux and windows
+Navicat Premium 12 for Linux and Windows
 
 下载地址见后记
 
-ubuntu18.04 亲测可用
+Ubuntu18.04 亲测可用
 
 
 ## 环境

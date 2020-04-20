@@ -7,7 +7,7 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - ubuntu
+    - Ubuntu
 ---
 
 ## 前言

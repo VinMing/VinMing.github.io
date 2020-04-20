@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      Ubuntu install mysql
-subtitle:    "\"Ubuntu install mysql\""
+title:      Ubuntu install Mysql
+subtitle:    "\"Ubuntu install Mysql\""
 date:       2020-04-10
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - ubuntu
-    - mysql
+    - Ubuntu
+    - Mysql
 
 ---
 

@@ -1,18 +1,18 @@
 ---
 layout:     post
-title:      text diff sublimerge sublime
-subtitle:    "\"文本对比　sublimerge sublime\""
+title:      text diff Sublimerge Sublime
+subtitle:    "\"文本对比　Sublimerge Sublime\""
 date:       2020-03-23
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - sublime
-    - sublimerge
+    - Sublime
+    - Sublimerge
 
 ---
 ## 前言
-sublime神器居然还有文本对比功能－[sublimerge](http://www.sublimerge.com/)
+Sublime神器居然还有文本对比功能－[sublimerge](http://www.sublimerge.com/)
 
 
 ## 环境
