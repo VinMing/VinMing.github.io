@@ -10,6 +10,10 @@ tags:
     - mysql
 
 ---
+
+## 前言
+收集mysql的错误信息来解决
+
 ## 环境
 #### 系统环境
 ```text
@@ -26,8 +30,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 version : 	
      mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
 ```
-## 前言
-
 ### debug 收集
 **1** 
 

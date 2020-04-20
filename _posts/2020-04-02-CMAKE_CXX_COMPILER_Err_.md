@@ -10,6 +10,21 @@ tags:
     - CMake
 
 ---
+
+
+
+
+
+## 前言
+运行某make的sh文件
+
+```sh
+../make-share.sh
+```
+
+出现：
+ **CMake错误No CMAKE_CXX_COMPILER could be found**
+
 ## 环境
 #### 系统环境
 ```text
@@ -28,21 +43,6 @@ version :
                     CMake suite maintained and supported by Kitware (kitware.com/cmake).
 
 ```
-
-
-
-
-## 前言
-运行某make的sh文件
-
-```sh
-../make-share.sh
-```
-
-出现：
- **CMake错误No CMAKE_CXX_COMPILER could be found**
-
-
 ## 正文
 ### 具体情况
 ```

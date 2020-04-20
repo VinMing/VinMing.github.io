@@ -14,6 +14,15 @@ tags:
 
 
 ---
+
+
+## 前言
+
+了解ＭySQL新建数据库时出现字符集和排序规则
+专业术语：
+	字符集（编码格式）　Character　charset
+	排序规则  Collation  collation
+
 ## 环境
 #### 系统环境
 ```text
@@ -29,15 +38,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 mysql version : 
 		mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper	
 ```
-
-## 前言
-
-了解ＭySQL新建数据库时出现字符集和排序规则
-专业术语：
-	字符集（编码格式）　Character　charset
-	排序规则  Collation  collation
-
-
 ## 正文
 ### １．字符集（编码格式）
 

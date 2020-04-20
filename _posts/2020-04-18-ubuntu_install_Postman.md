@@ -10,6 +10,12 @@ tags:
     - Postman
 
 ---
+
+
+## 前言
+
+开发的过程中经常使用Postman来发起网络请求,下面就来介绍Postman这个工具到安装方法
+
 ## 环境
 #### 系统环境
 ```text
@@ -25,12 +31,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 version : 	
      Postman v7.22.1
 ```
-
-## 前言
-
-开发的过程中经常使用Postman来发起网络请求,下面就来介绍Postman这个工具到安装方法
-
-
 ## 正文
 
 1):官网下载软件包:

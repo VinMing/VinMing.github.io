@@ -11,6 +11,10 @@ tags:
     - sublimerge
 
 ---
+## 前言
+sublime神器居然还有文本对比功能－[sublimerge](http://www.sublimerge.com/)
+
+
 ## 环境
 #### 系统环境
 ```text
@@ -27,9 +31,7 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 version: 	Sublime Text Build 3211
 ```
 
-## 前言
 
-sublime神器居然还有文本对比功能－[sublimerge](http://www.sublimerge.com/)
 
 ## 正文
 ### 安装插件

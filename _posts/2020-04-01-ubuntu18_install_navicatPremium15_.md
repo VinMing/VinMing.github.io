@@ -12,6 +12,8 @@ tags:
 
 ---
 
+## 前言
+Ubuntu 18 安装navicat Premium 15 并打包生成AppImage独立软件
 ## 环境
 #### 系统环境
 ```text

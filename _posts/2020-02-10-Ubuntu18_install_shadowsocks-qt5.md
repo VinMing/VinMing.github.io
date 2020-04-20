@@ -9,21 +9,6 @@ catalog: true
 tags:
     - Ubuntu
 ---
-## 环境
-#### 系统环境
-```text
-Distributor ID:	Ubuntu
-Description:	Ubuntu 18.04.4 LTS
-Release:	18.04
-Codename:	bionic
-Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
-Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
-```
-
-#### 软件信息
-```text
-version : 	shadowSocks-qt5
-```
 
 ## 前言
 
@@ -46,6 +31,25 @@ N: Updating from such a repository can't be done securely, and is therefore disa
 N: See apt-secure(8) manpage for repository creation and user configuration details.
 ```
 原因：ppa:hzwhuang/ss-qt5 并没有18.04版本的源
+
+
+## 环境
+#### 系统环境
+```text
+Distributor ID:	Ubuntu
+Description:	Ubuntu 18.04.4 LTS
+Release:	18.04
+Codename:	bionic
+Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
+Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
+```
+
+#### 软件信息
+```text
+version : 	shadowSocks-qt5
+```
+
+
 
 ## 解决方法
 

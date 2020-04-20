@@ -9,6 +9,13 @@ catalog: true
 tags:
     - ubuntu
 ---
+
+## 前言
+
+ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
+
+![Image text](/img/Ubuntu_filename_home.png)
+
 ## 环境
 #### 系统环境
 ```text
@@ -19,15 +26,6 @@ Codename:	bionic
 Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```
-
-## 前言
-
-ubuntu 下文件名 乱码,显示invaild encoding 等字符,如下图
-
-![Image text](/img/Ubuntu_filename_home.png)
-
-
-
 
 ## 正文
 

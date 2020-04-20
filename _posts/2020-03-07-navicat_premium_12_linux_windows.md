@@ -12,6 +12,13 @@ tags:
     - windows
 
 ---
+## 前言
+navicat premium12 for linux and windows
+
+下载地址见后记
+
+ubuntu18.04 亲测可用
+
 
 ## 环境
 #### 系统环境
@@ -29,12 +36,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 version : 	Navicat Premium 12 for linux and windows
 ```
 
-## 前言
-navicat premium12 for linux and windows
-
-下载地址见后记
-
-ubuntu18.04 亲测可用
 
 
 ## 正文

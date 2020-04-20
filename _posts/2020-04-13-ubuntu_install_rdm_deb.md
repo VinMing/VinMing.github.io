@@ -12,6 +12,17 @@ tags:
     - deb
 
 ---
+
+## 前言
+
+Redis Desktop Manager（RDM）,这个工具操作redis还是蛮好用的，[RDM官网](https://github.com/uglide/RedisDesktopManager)介绍
+
+使用deb包安装0.8版本64位的RDM[官网deb下载](https://github.com/uglide/RedisDesktopManager/releases/download/0.8.3/redis-desktop-manager_0.8.3-120_amd64.deb)
+
+失效就下载这个[百度云盘](https://pan.baidu.com/s/1cA3jWU)
+
+历史版本 [redisdesktopmanager地址](https://github.com/uglide/RedisDesktopManager/releases)
+
 ## 环境
 #### 系统环境
 ```text
@@ -26,17 +37,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 ```text
 version : 	redis-desktop-manager_0.8.3-120_amd64
 ```
-
-## 前言
-
-Redis Desktop Manager（RDM）,这个工具操作redis还是蛮好用的，[RDM官网](https://github.com/uglide/RedisDesktopManager)介绍
-
-使用deb包安装0.8版本64位的RDM[官网deb下载](https://github.com/uglide/RedisDesktopManager/releases/download/0.8.3/redis-desktop-manager_0.8.3-120_amd64.deb)
-
-失效就下载这个[百度云盘](https://pan.baidu.com/s/1cA3jWU)
-
-历史版本 [redisdesktopmanager地址](https://github.com/uglide/RedisDesktopManager/releases)
-
 
 ## 正文
 

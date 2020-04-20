@@ -11,6 +11,10 @@ tags:
     - mysql
 
 ---
+
+## 前言
+这里是Ubuntu 18.04的mysql安装教程，ubuntu低版本或其他非Debian的Linux发行版可能不适用。
+
 ## 环境
 #### 系统环境
 ```text
@@ -26,8 +30,6 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 version : 	
      mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
 ```
-## 前言
-这里是Ubuntu 18.04的mysql安装教程，ubuntu低版本或其他非Debian的Linux发行版可能不适用。
 
 ## 正文
 ### 1.  安装mysql
