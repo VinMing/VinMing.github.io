@@ -12,11 +12,9 @@ tags:
 ---
 ## 前言
 
-BY 的 Blog 就这么开通了。
+https://blog.csdn.net/xwc35047/article/details/86369465
 
-本来打算在年前完成 Blog 的搭建，不曾料想踩了很多坑。。。
-
-[跳过废话，直接看技术实现 ](#build) 
+LOAP的来龙去脉：https://esc.fnwi.uva.nl/thesis/centraal/files/f347829190.pdf
 
 ## 环境
 #### 系统环境

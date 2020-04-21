@@ -12,27 +12,12 @@ tags:
 ---
 ## 前言
 
-BY 的 Blog 就这么开通了。
+https://bbs.pinggu.org/thread-3695019-1-1.html
+BI 商业智能: 通过智能化的技术，将商业的问题以及数据经过检验、解释，成为数据分析结果，建立相应的预测模型，再指导商业活动。
 
-本来打算在年前完成 Blog 的搭建，不曾料想踩了很多坑。。。
 
-[跳过废话，直接看技术实现 ](#build) 
+BI,一般是数据仓库,在线分析,数据挖掘一体的,,数据库,SQL要写的好...会使用相应的ETL工具,和报表工具等...业务当然要熟悉....
 
-## 环境
-#### 系统环境
-```text
-Distributor ID:	Ubuntu
-Description:	Ubuntu 18.04.4 LTS
-Release:	18.04
-Codename:	bionic
-Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
-Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
-```
-#### 软件信息
-```text
-version : 	
-     
-```
 
 ## 正文
 
