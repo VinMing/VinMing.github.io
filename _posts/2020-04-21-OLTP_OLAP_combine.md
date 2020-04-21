@@ -14,10 +14,15 @@ tags:
 ## 前言
 #### 专业名词：
 OLTP （On-Line Transaction Processing）联机事务处理
+
 OLAP （On-Line Analytical Processing）联机分析处理
+
 DBMS  (Database Management System) 数据库管理系统
+
 ROLAP (Relationship OLAP) 关系OLAP
+
 ETL (Extract, Transform and Load) 萃取、转置和加载
+
 ## 正文
 为了完全理解OLTP(联机事务处理)和OLAP(联机分析处理)，有必要结合一些行业背景来谈。在软件技术发展的早期，数据通常存储在一个文件中。随后，IT需要解决的问题越来越大，关系数据库管理系统(DBMS)开始席卷市场。在接下来的几十年里，它几乎成为了每个企业的数据存储解决方案。
 
