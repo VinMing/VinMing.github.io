@@ -48,12 +48,15 @@ GUID —— Globally Unique IDentifier     C#中称为 GUID
 
 
 ### UUID有什么用?
-很多应用场景需要一个id，但是又不要求这个id 有具体的意义，仅仅用来标识一个对象。常见的用处有数据库表的id字段；另一个例子是前端的各种UI库，因为它们通常需要动态创建各种UI元素，这些元素需要唯一的id， 这时候就需要使用UUID了。例如：一个网站在存储视频、图片等格式的文件时，这些文件的命名方式就可以采用 UUID生成的随机标识符，避免重名的出现。
+很多应用场景需要一个id，但是又不要求这个id 有具体的意义，仅仅用来标识一个对象。
+
+常见的用处有数据库表的id字段；另一个例子是前端的各种UI库，因为它们通常需要动态创建各种UI元素，这些元素需要唯一的id， 这时候就需要使用UUID了。例如：一个网站在存储视频、图片等格式的文件时，这些文件的命名方式就可以采用 UUID生成的随机标识符，避免重名的出现。
 
 
 ### UUID模块提供的UUID类和函数
 python的uuid模块提供的UUID类和函数uuid1()，uuid3()，uuid4()，uuid5() 来生成1, 3, 4, 5各个版本的UUID ( 需要注意的是：python中没有uuid2()这个函数)。
 
+```tex
 对uuid模块中最常用的几个函数总结如下:
 
 1.  uuid.uuid1([node[, clock_seq]]) -- 基于时间戳
@@ -82,11 +85,14 @@ python的uuid模块提供的UUID类和函数uuid1()，uuid3()，uuid4()，uuid5(
 5.  uuid.uuid5() -- 基于名字的SHA-1散列值
 
 算法与uuid3相同，不同的是使用 Secure Hash Algorithm 1 算法
-
+```
 ## 后记
 首先，Python中没有基于 DCE 的，所以uuid2可以忽略；
+
 其次，uuid4存在概率性重复，由无映射性，最好不用；
+
 再次，若在Global的分布式计算环境下，最好用uuid1；
+
 最后，若有名字的唯一性要求，最好用uuid3或uuid5。
 
 ```python
@@ -95,12 +101,13 @@ name = "t_name"
 namespace = "t_namespace"
 
 print(uuid.uuid1()) # 带参的方法参见Python Doc
+
 print(uuid.uuid3(namespace, name))
 print(uuid.uuid4())
 print(uuid.uuid5(namespace, name))
 ```
-Python uuid Doc :https://docs.python.org/3.7/library/uuid.html
+## 参考
+[Python uuid Doc](https://docs.python.org/3.7/library/uuid.html)
 
-@[TOC](这里写自定义目录标题)
 
 

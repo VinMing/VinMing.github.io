@@ -44,10 +44,15 @@ import  hashlib
 ```python
 def md5(string):
     # 对要加密的字符串进行指定编码
+    
 	string = string.encode(encoding ='UTF-8')
+    
     # md5加密
+    
 	print(hashlib.md5(string))
+    
     # 将md5 加密结果转字符串显示
+    
 	return hashlib.md5(string).hexdigest()
 ```
 
@@ -59,14 +64,20 @@ import uuid
 用法：
 ```python
 # 获取唯一加密值，uuid1 根据主机mac地址和时间戳生成全球唯一加密值
+
 # 唯一缺点会暴露mac地址
+
 id = uuid.uuid1()
+
 #将生成的加密值去除-获得32位加密值
+
 id = id.replace('-','')
 ```
 知识点
 ``` tex
-   uuid是128位的全局唯一标识符（univeral unique identifier），通常用32位的一个字符串的形式来表现。有时也称guid(global unique identifier)。python中自带了uuid模块来进行uuid的生成和管理工作。
+   uuid是128位的全局唯一标识符（univeral unique identifier），通常用32位的一个字符串的形式来表现。有时也称guid(global unique identifier)。
+  
+   python中自带了uuid模块来进行uuid的生成和管理工作。
 
 　　python中的uuid模块基于信息如MAC地址、时间戳、命名空间、随机数、伪随机数来uuid。具体方法有如下几个：　　
 
@@ -80,6 +91,8 @@ id = id.replace('-','')
 
 　　uuid.uuid5(namespace,name)　　和uuid3基本相同，只不过采用的散列算法是sha1
 ```
+## 参考
+[python_uuid](https://vinming.github.io/2018/05/01/python_uuid/)
 ## 后记
 
 @[TOC](这里写自定义目录标题)
