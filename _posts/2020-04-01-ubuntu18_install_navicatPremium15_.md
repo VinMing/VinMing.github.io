@@ -71,7 +71,7 @@ chmod +x navicat-keygen
 ### 2.  解包官方软件
 ```sh
 mkdir navicat15
-mount -o loop navicat15-premium-cs.AppImage navicat15
+sudo mount -o loop navicat15-premium-cs.AppImage navicat15
 cp -r navicat15 navicat15-patched
 ```
 

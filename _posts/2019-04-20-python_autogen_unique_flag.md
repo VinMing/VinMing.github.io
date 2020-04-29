@@ -44,16 +44,11 @@ import  hashlib
 ```python
 def md5(string):
     # 对要加密的字符串进行指定编码
-    
-	string = string.encode(encoding ='UTF-8')
-    
+    string = string.encode(encoding ='UTF-8')
     # md5加密
-    
 	print(hashlib.md5(string))
-    
     # 将md5 加密结果转字符串显示
-    
-	return hashlib.md5(string).hexdigest()
+    return hashlib.md5(string).hexdigest()
 ```
 
 ###  2. uuid
