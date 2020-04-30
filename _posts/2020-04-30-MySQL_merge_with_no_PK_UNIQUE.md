@@ -121,14 +121,16 @@ mysql> SELECT * FROM test_a;
 +------+------+---------------------+
 2 rows in set (0.00 sec)
 ```
-
 call merge_a_to_b 函数： 合并表a 和表b
-```
+```sql
 
 mysql> call merge_a_to_b();
 Query OK, 0 rows affected (0.02 sec)
 
 mysql> SELECT * FROM test_b;
+```
+合并结果
+```sql
 +------+------+---------------------+
 | id   | name | Operatime           |
 +------+------+---------------------+

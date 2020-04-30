@@ -40,7 +40,7 @@ version :
 
 ## 正文
 创建表结构和数据
-```mysql
+```sql
 -- 创建测试表
 -- drop table test_dup_old
 create table test_dup_old(
@@ -57,7 +57,7 @@ INSERT INTO test_dup_old values(1,"wujian",now()),(2,"xiay",now()),(3,"wangj",no
 
 #### 实验一： 单独更新一行数据
 test_dup_old 表中有三条数据如下：
-```mysql
+```sql
 mysql> SELECT * FROM test_dup_old;
 +----+--------+---------------------+
 | id | name   | operatime           |
@@ -204,6 +204,6 @@ mysql> SELECT * FROM test_dup_old;                                        +----+
 好奇的我提取了一个问题，那没有主键又不会插入全部行的写法吗？
 
 有！！！
-[MySQL merge with no PK or UNIQUE]()
+[MySQL merge with no PK or UNIQUE](https://vinming.github.io/2020/04/30/MySQL_merge_with_no_PK_UNIQUE/)
 
 

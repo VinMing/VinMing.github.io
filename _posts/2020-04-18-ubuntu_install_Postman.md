@@ -33,9 +33,10 @@ version :
 ```
 ## 正文
 
-1):官网下载软件包:
-https://www.getpostman.com/apps
+1):[官网下载软件包](https://www.getpostman.com/apps):
+
 我这里下载的是Postman-linux-x64-7.22.1.tar.gz安装包
+
 2):解压到指定文件夹:
 
 ```sh
