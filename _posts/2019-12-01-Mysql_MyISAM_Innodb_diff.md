@@ -7,7 +7,10 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - 生活
+    - MySQL
+    - MyISAM
+    - InnoDB
+
 
 ---
 ## 前言
