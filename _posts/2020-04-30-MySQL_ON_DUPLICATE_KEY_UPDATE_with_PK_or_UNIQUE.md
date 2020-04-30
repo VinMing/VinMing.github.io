@@ -157,7 +157,7 @@ mysql> SELECT * FROM test_dup_old;
 
 ## 后记
 注意：id字段是主键或UNIQUE索引，不然只会插入dupnew表所有行数据
-```mysql
+```sql
 mysql> ALTER TABLE test_dup_old DROP PRIMARY KEY;
 Query OK, 4 rows affected (0.08 sec)
 Records: 4  Duplicates: 0  Warnings: 0
@@ -187,7 +187,9 @@ mysql> INSERT INTO test_dup_old(id,name, operatime) SELECT * FROM test_dup_new O
 Query OK, 3 rows affected (0.01 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
-mysql> SELECT * FROM test_dup_old;                                        +----+--------+---------------------+
+mysql> SELECT * FROM test_dup_old;    
+
++----+--------+---------------------+
 | id | name   | operatime           |
 +----+--------+---------------------+
 | 1  | wujian | 2020-04-29 09:46:52 |
