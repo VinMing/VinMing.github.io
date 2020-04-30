@@ -16,7 +16,7 @@ mysql 并没有merge into的DML(数据操纵语言)的关键字来合并两张�
 
 两种的方法都需要原始数据表具有唯一性索引或者主键，不然插入合并插入新表所有行。
 
-如果你觉得merge有点眼熟，好像merge是mysql存储引擎，那你就请移步到另外一篇文章，[MySQL MERGE 存储引擎](https://www.cnblogs.com/hjw-zq/p/9804001.html)
+如果你觉得merge有点眼熟，好像merge是mysql存储引擎，那你就请移步到另外一篇文章，[MySQL MERGE 存储引擎](https://vinming.github.io/2020/01/04/MySQL_MYISAM_Merge_Engine/)
 
 首先声明：ON DUPLICATE KEY UPDATE 为MySQL特有语法；
 
