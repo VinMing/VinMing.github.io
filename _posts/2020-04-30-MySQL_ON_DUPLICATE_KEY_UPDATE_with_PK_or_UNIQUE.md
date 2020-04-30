@@ -70,18 +70,18 @@ mysql> SELECT * FROM test_dup_old;
 ```
 
 表中的主键为ID，现要插入一条数据，ID为3，name为修改test，operatime为now，结果为：
-```mysql
+```sql
 mysql> INSERT INTO test_dup_old values(3,"test",now());
 ERROR 1062 (23000): Duplicate entry '3' for key 'PRIMARY'
 ```
 MySQL告诉我们，我们的主键冲突了，看到这里我们是不是可以改变一下思路，当插入已存在主键的记录时，将插入操作变为修改：
 在原SQL后面增加 ON DUPLICATE KEY UPDATE 和动态的传入要修改的值（VALUES 后面条件）
-```mysql
+```sql
 mysql> INSERT INTO test_dup_old values(3,"test",now()) ON DUPLICATE KEY UPDATE name=VALUES(name), operatime=VALUES(operatime);
 Query OK, 2 rows affected (0.00 sec)
 ```
 成功的修改了两行记录，刷新一下表.(我只是更新一条记录，这里提示为什么是两条呢？)
-```mysql
+```sql
 mysql> SELECT * FROM test_dup_old;
 +----+--------+---------------------+
 | id | name   | operatime           |
@@ -98,7 +98,7 @@ mysql> SELECT * FROM test_dup_old;
 
 **比如，只想修改name字段，但是operatime字段也必须写上，如果不想修改operatime字段，可以写入原来的值。**
 
-```mysql 
+```sql 
 mysql> INSERT INTO test_dup_old VALUES(3,'no operatime') on duplicate key update name=values(name);
 ERROR 1136 (21S01): Column count doesn't match value count at row 1
 ```
@@ -108,14 +108,14 @@ ERROR 1136 (21S01): Column count doesn't match value count at row 1
 
 #### 实验二： 合并两张表，更新所有字段
 新创一张一样数据表结构不同表名并插入数据
-```mysql
+```sql
 -- 复制 test_dup 的表结构到 test_dup_new
 CREATE TABLE test_dup_new LIKE test_dup_old
 -- 插入 test_dup_new 模拟数据
 INSERT INTO test_dup_new values(1," xyr",now()),(2,"sy",now()),(5,"wsj",now());
 ```
 查看两张表的数据情况
-```
+```sql
 mysql> select * from test_dup_new;
 +----+------+---------------------+
 | id | name | operatime           |
@@ -138,7 +138,7 @@ mysql> select * from test_dup_old;
 
 ```
 将表 test_dup_new 更新到表 test_dup_old 中去， 根据id存在就更新，不存在就插入
-```mysql
+```sql
 mysql> INSERT INTO test_dup_old(id,name, operatime) SELECT * FROM test_dup_new ON DUPLICATE KEY UPDATE id=values(id);
 Query OK, 1 row affected (0.01 sec)
 Records: 3  Duplicates: 0  Warnings: 0

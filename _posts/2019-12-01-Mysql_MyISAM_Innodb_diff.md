@@ -35,7 +35,7 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 #### 软件信息
 ```text
 version : 	
-     
+     mysql  Ver 14.14 Distrib 5.7.29, for Linux (x86_64) using  EditLine wrapper
 ```
 
 ## 正文

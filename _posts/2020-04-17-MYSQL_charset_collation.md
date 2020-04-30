@@ -57,7 +57,7 @@ mysql version :
 
 
 查看MySQL当前字符集：
-```sh
+```sql
 mysql> show variables like 'char%';
 +--------------------------+----------------------------+
 | Variable_name            | Value                      |
@@ -97,7 +97,7 @@ MySQL(4.1以后版本) 服务器中有六个关键位置使用了字符集的概
 
 查看数据库编码 (即字符集)
 
-```tex
+```sql
 mysql> show create database mysql;
 +----------+------------------------------------------------------------------+
 | Database | Create Database                                                  |
@@ -146,7 +146,7 @@ mysql> show create database mysql;
 
 注：Maxlen，字符集的一个字符占用的最大字节数
 
-```txe
+```sql
 mysql> show character set;
 +----------+---------------------------------+---------------------+--------+
 | Charset  | Description                     | Default collation   | Maxlen |

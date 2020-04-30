@@ -32,7 +32,7 @@ version :
 
 ## 正文
 ### 创表添加表注释
-``` mysql
+``` sql
 Create table test_tb
 (
 	id int identity(1,1) primary key COMMENT '商品id',
@@ -41,7 +41,7 @@ Create table test_tb
 
 ```
 ### 修改表注释
-``` mysql
+``` sql
 ALTER TABLE test_tb COMMENT='修改-测试表';  
 ```
 ## 后记

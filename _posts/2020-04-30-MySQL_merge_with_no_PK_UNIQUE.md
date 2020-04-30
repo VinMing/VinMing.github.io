@@ -35,7 +35,7 @@ version :
 
 ## 正文
 
-```mysql
+```sql
 
 -- 创建测试表
 -- drop table test_a;
@@ -60,7 +60,7 @@ SELECT * FROM test_b;
 SELECT * FROM test_a
 ```
 设计 merge_a_to_b 函数
-```mysql
+```sql
 CREATE DEFINER=`root`@`localhost` PROCEDURE `merge_a_to_b`()
 BEGIN
 -- 定义需要插入从a表插入b表的过程变量
@@ -102,7 +102,7 @@ END
 
 原始数据情况
 
-```mysql
+```sql
 mysql> SELECT * FROM test_b;
 +------+------+---------------------+
 | id   | name | Operatime           |
