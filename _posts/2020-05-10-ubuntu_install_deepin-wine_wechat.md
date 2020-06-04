@@ -1,22 +1,20 @@
 ---
 layout:     post
-title:      Hello 2020
-subtitle:    "\"Hello World, Hello Blog\""
+title:      Ubuntu Install Deepin-wine wechat
+subtitle:    "\"Ubuntu Install Deepin-wine wechat\""
 date:       2020-01-28
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - 生活
+    - Ubuntu
+    - wechat
 
 ---
 ## 前言
+在Ubuntu 系统下安装wechat是意见很困难的事情，建议去网页版微信。
+但是你说硬要安装客户端，那你就往下看。
 
-BY 的 Blog 就这么开通了。
-
-本来打算在年前完成 Blog 的搭建，不曾料想踩了很多坑。。。
-
-[跳过废话，直接看技术实现 ](#build) 
 
 ## 环境
 #### 系统环境
@@ -35,8 +33,7 @@ version :
 ```
 
 ## 正文
-ubuntu 安装 wechat
-出现问题 
+ubuntu 安装 wechat出现问题信息：
 ```sh
 (Reading database ... 144555 files and directories currently installed.)
 Preparing to unpack .../deepin.com.weixin.work_2.8.10.2010deepin0_i386.deb ...
@@ -55,26 +52,44 @@ Processing triggers for mime-support (3.60ubuntu1) ...
 Processing triggers for hicolor-icon-theme (0.17-2) ...
 Errors were encountered while processing:
  deepin.com.weixin.work:i386
-
 ```
 
-分析
-安装wine 时候没有加上32位架构
-先卸载deepin-wine
-cd deepin-wine
-sudo ./uninstall.sh
-增加32位架构
-``` sh
-sudo dpkg --add-architecture i386
-sudo apt-get update
+### 分析
+看错误日志提示信息：
+```sh
+dpkg: dependency problems prevent configuration of deepin.com.weixin.work:i386:
+ deepin.com.weixin.work:i386 depends on deepin-wine (>= 2.18-0).
+ deepin.com.weixin.work:i386 depends on deepin-wine32.
+ deepin.com.weixin.work:i386 depends on deepin-wine32-preloader.
+ deepin.com.weixin.work:i386 depends on deepin-wine-helper (>= 1.2deepin2).
+
+dpkg: error processing package deepin.com.weixin.work:i386 (--install):
+ dependency problems - leaving unconfigured
 ```
+缺少４个依赖包
 
-重新安装deepin-wine
+宗旨：缺啥补啥。
 
-sudo ./install.sh
-sudo dpkg -i ./deepin.com.weixin.work_2.8.10.2010deepin0_i386.deb
+####  去[Ubuntu官方网站](https://packages.ubuntu.com/)下载依赖包
+
+   1. 查看当前系统版本对应的版本代号
+
+      ```
+      xenial (16.04LTS)
+      bionic (18.04LTS)
+      disco (19.04)
+      ```
+
+   2. 查找想要的依赖包，如 deepin-wine
+
+   3. 下载并安装
+
+      ```sh
+      sudo dpkg -i XXX.deb
+      ```
+
+
+
 ## 后记
-
-@[TOC](这里写自定义目录标题)
 
 
