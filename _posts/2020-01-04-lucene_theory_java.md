@@ -12,20 +12,11 @@ tags:
 
 ---
 ## 前言
-最近在学习Nutch(Nutch作为当今最流行的开源爬虫之一)，得知Nutch是基于Lucene开发的，就去学习Ｌucene的原理。找了很多网上资料，残次不齐。
+最近在学习Nutch(Nutch作为当今最流行的开源爬虫之一)，得知Nutch是基于Lucene开发的，就去学习Lucene的原理。找了很多网上资料，残次不齐。
 
 看的一位大神在csdn里写了《lucene原理及java实现》，让我少走了很多弯路，向大神致敬！！可以滑到，后记有个连接，查看他的原处。
 
-## 环境
-#### 系统环境
-```text
 
-```
-#### 软件信息
-```text
-version : 	
-     
-```
 
 ## 正文
 ### 一、Lucene是什么?
@@ -196,7 +187,7 @@ Stemming 和 lemmatization的异同：
 
 索引组件(Indexer)主要做以下几件事情：
 
-1. 利用得到的词(Term)创建一个字典。
+1.利用得到的词(Term)创建一个字典。
 
 在我们的例子中字典如下：
 
@@ -208,7 +199,7 @@ Stemming 和 lemmatization的异同：
 | allow   | 2           |
 
 
-2. 对字典按字母顺序进行排序:
+2.对字典按字母顺序进行排序:
 
 | Term    | Document ID |
 | ------- | ----------- |
@@ -217,7 +208,7 @@ Stemming 和 lemmatization的异同：
 | ...     | ...         |
 | them   | 2           |
 
-3.  合并相同的词(Term) 成为文档倒排(Posting List) 链表。
+3.合并相同的词(Term) 成为文档倒排(Posting List) 链表。
 
 ![Image text](/img/lucene_java_Posting_List.jpg)
 
@@ -326,7 +317,7 @@ Stemming 和 lemmatization的异同：
 判断词(Term) 之间的关系从而得到文档相关性的过程应用一种叫做向量空间模型的算法(Vector Space Model) 。
 
 下面仔细分析一下这两个过程：
-1. 计算权重(Term weight)的过程。
+1.计算权重(Term weight)的过程。
 
 影响一个词(Term)在一篇文档中的重要性主要有两个因素：
 
@@ -341,7 +332,7 @@ Stemming 和 lemmatization的异同：
 ![Image text](/img/lucene_java_weigth_formual.png)
 
 这仅仅只term weight计算公式的简单典型实现。实现全文检索系统的人会有自己的实现，Lucene就与此稍有不同。
-2. 判断Term之间的关系从而得到文档相关性的过程，也即向量空间模型的算法(VSM)。
+2.判断Term之间的关系从而得到文档相关性的过程，也即向量空间模型的算法(VSM)。
 
 我们把文档看作一系列词(Term)，每一个词(Term)都有一个权重(Term weight)，不同的词(Term)根据自己在文档中的权重来影响文档相关性的打分计算。
 
@@ -445,13 +436,17 @@ Directory directory = new RAMDirectory();
 根据两种索引库的特点我们可以将两种索引库结合起来，设计的思路是在程序启动时，将文件索引库中的索引拷贝到内存索引库中，然后让程序与内存索引库交互，当交互完毕后再将内存索引库的索引持久化到文件索引库。
 
 ```java
-/**
+/*
          * 1.创建两个索引库
+         
          * 2.创建两个IndexWriter
+         
          * 3.把文件索引库中的内容放到内存索引库中
+        
          * 4.让内存索引库和客户端进行交互
+         
          * 5.把内存索引库的内容放到文件索引库
-         */
+*/
         final Path docDir = Paths.get("index");
         //创建文件索引库
         Directory fileDirectory=FSDirectory.open(Paths.get("index"));
@@ -501,7 +496,7 @@ Directory directory = new RAMDirectory();
 
 
 
-## 源码
+### 源码
 
 目前Lucene已经更新到8.2版本，自从4.9版本就需要1.7以上的JDK，所以如果还用1.6甚至是1.5的小盆友，请参考低版本，由于我用的1.7，因此在使用Lucene5.5。
 
