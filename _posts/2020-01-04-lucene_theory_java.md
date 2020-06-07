@@ -207,7 +207,9 @@ Stemming 和 lemmatization的异同：
 | ...     | ...         |
 | allow   | 2           |
 
-2. 对字典按字母顺序进行排序。
+
+2. 对字典按字母顺序进行排序:
+
 | Term    | Document ID |
 | ------- | ----------- |
 | allow | 1           |
@@ -273,21 +275,18 @@ Stemming 和 lemmatization的异同：
 
 由于查询语句有语法，因而也要进行语法分析，语法分析及语言处理。
 
-1. 词法分析主要用来识别单词和关键字。
+ 1.词法分析主要用来识别单词和关键字。
 
 如上述例子中，经过词法分析，得到单词有lucene，learned，hadoop, 关键字有AND, NOT。
 
 如果在词法分析中发现不合法的关键字，则会出现错误。如lucene AMD learned，其中由于AND拼错，导致AMD作为一个普通的单词参与查询。
 
-2. 语法分析主要是根据查询语句的语法规则来形成一棵语法树。
+ 2.语法分析主要是根据查询语句的语法规则来形成一棵语法树。
 
 如果发现查询语句不满足语法规则，则会报错。如lucene NOT AND learned，则会出错。
 ![Image text](/img/lucene_java_gramma_tree_1.jpg)
-｛语法树1｝
 
-3. 语言处理同索引过程中的语言处理几乎相同。
-
-如learned变成learn等。
+ 3.语言处理同索引过程中的语言处理几乎相同。如learned变成learn等。
 
 经过第二步，我们得到一棵经过语言处理的语法树。
 ![Image text](/img/lucene_java_gramma_tree_2.jpg)
@@ -295,7 +294,6 @@ Stemming 和 lemmatization的异同：
 ###### 第三步：搜索索引，得到符合语法树的文档。
 
 此步骤有分几小步：
-
 1. 首先，在反向索引表中，分别找出包含lucene，learn，hadoop的文档链表。
 2. 其次，对包含lucene，learn的链表进行合并操作，得到既包含lucene又包含learn的文档链表。
 3. 然后，将此链表与hadoop的文档链表进行差操作，去除包含hadoop的文档，从而得到既包含lucene又包learn而且不包含hadoop的文档链表。
@@ -387,7 +385,7 @@ Query Vector = {weight1, weight2, …… , weight N}
 ![Iamge Text](/img/lucen_java_lucene_process.jpg)
 此图参照文章《开放源代码的全文检索引擎Lucene》
 
-1. 索引过程：
+索引过程：
 
 1) 有一系列被索引文件
 
@@ -397,7 +395,7 @@ Query Vector = {weight1, weight2, …… , weight N}
 
 4) 通过索引存储将索引写入硬盘。
 
-2. 搜索过程：
+搜索过程：
 
 a) 用户输入查询语句。
 
