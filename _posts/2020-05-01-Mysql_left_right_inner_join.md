@@ -7,10 +7,10 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    -MySQL
-    -left join
-    -right join
-    -inner join
+    - MySQL
+    - left join
+    - right join
+    - inner join
 ---
 ## 前言
 
