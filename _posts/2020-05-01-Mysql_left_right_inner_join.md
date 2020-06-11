@@ -8,9 +8,9 @@ header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
     - MySQL
-    - left join
-    - right join
-    - inner join
+    - Left Join
+    - Right Join
+    - Inner Join
 ---
 ## 前言
 

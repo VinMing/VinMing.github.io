@@ -7,11 +7,11 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - redis-config
+    - Redis-Config
 ---
 ## 前言
 
-针对[database hacker attack]()，redis安装完之后，要有三个安全配置。
+针对[database hacker attack](https://vinming.github.io/2020/01/20/database_hack_attack)，redis安装完之后，要有几个初始化安全配置。
 
 ## 环境
 #### 系统环境
@@ -31,15 +31,18 @@ version:
 
 ## 正文
 
+默认知道redis.xx.conf的相关配置的！如果不知道，请看：
+[redis_common_config]()
+
 ### 配置redis防范攻击措施
 
-####  一、 redis版本升级
+#### 一、 redis版本升级
 
 去[redis官网](https://redis.io/download)查看版本情况，注意redis 偶数为稳定版本，奇数为开发版本。
 
 ##### 1. 初始化升级
 
-​	直接删除旧的版本，安装新的版本，这里就不再叙述，自行google和百度。
+直接删除旧的版本，安装新的版本，这里就不再叙述，自行google和百度。
 
 ##### 2. 大版本平滑升级（保存已有的key）
 
@@ -53,12 +56,12 @@ version:
 ```
 requirepass mypassword
 ```
-
 （注意redis不要用-a参数，明文输入密码，连接后使用auth认证）
 
-####　三、禁止一些高危命令(重启生效)
 
-- 修改 redis.conf 文件，禁用远程修改 DB 文件地址
+#### 三、禁止一些高危命令(重启生效)
+
+修改 redis.conf 文件，禁用远程修改 DB 文件地址
 ```sh
 rename-command FLUSHALL ""
 rename-command CONFIG ""
@@ -66,15 +69,15 @@ rename-command EVAL ""
 ```
 设置为空即为禁用该命令
 
-- 或者通过修改redis.conf文件，改变这些高危命令的名称
-
+或者通过修改redis.conf文件，改变这些高危命令的名称
 ```sh
 rename-command FLUSHALL "name1"
 rename-command CONFIG "name2"
 rename-command EVAL "name3"
 ```
 
-####　四、以低权限运行redis服务(重启生效)
+
+#### 四、以低权限运行redis服务(重启生效)
 
 为 Redis 服务创建单独的用户和家目录，并且配置禁止登陆
 
@@ -82,7 +85,7 @@ rename-command EVAL "name3"
 groupadd -r redis && useradd -r -g redis redis
 ```
 
-####　五、修改默认端口(重启生效)
+#### 五、修改默认端口(重启生效)
 
 修改配置文件redis.conf文件
 
@@ -92,7 +95,7 @@ Port 6379
 
 默认端口是6379，可以改变成其他端口（不要冲突就好）
 
-####　六、保证authorized_keys文件的安全
+#### 六、保证authorized_keys文件的安全
 
 为了保证安全，您应该阻止其他用户添加新的公钥。
 
@@ -114,7 +117,7 @@ chattr +i ~/.ssh/authorized_keys
 chattr +i ~/.ssh
 ```
 
-####　七、设置防火墙策略　开放外网访问，限制已知ip访问
+#### 七、设置防火墙策略　开放外网访问，限制已知ip访问
 
 如果正常业务中Redis服务需要被其他服务器来访问，可以设置iptables策略仅允许指定的IP来访问Redis服务。
 

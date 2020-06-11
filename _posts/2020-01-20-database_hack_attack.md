@@ -7,7 +7,7 @@ author:     Stephen
 header-img: img/hacker_log.jpg
 catalog: true
 tags:
-    - database attack
+    - Database Attack
 ---
 ## 前言
 
@@ -48,7 +48,7 @@ tags:
 
 ## 后记
 
-[redis_safety_init_config]()
+[redis_safety_init_config](https://vinming.github.io/2020/01/28/redis_safety_init_config/)
 
 @[TOC](这里写自定义目录标题)
 
