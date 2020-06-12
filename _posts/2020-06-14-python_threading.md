@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      Hello 2020
-subtitle:    "\"Hello World, Hello Blog\""
-date:       2020-01-28
+title:      Python Threading
+subtitle:    "\"python threading\""
+date:       2020-06-14
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - 生活
+    - Python
 
 ---
 ## 前言

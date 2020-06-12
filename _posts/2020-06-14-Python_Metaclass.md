@@ -64,9 +64,9 @@ print(type(Job))
 <class 'type'>
 
 ```
-通过__class__属性，我们可以找到一个对象所属的类。
+通过_\_class__属性，我们可以找到一个对象所属的类。
 
-在上面的代码中，我们创建了一个Job类，并实例化了一个Job的实例对象j。打印j对象，j是一个Job对象，打印j.__class__，可以知道j是Job类的对象。我们再打印Job，Job是一个类，打印Job.__class__，我们看到Job是type类的对象。type函数通常用来查看一个变量或对象的类型，所以我们继续打印type(Job)，发现Job类的类型也是type。
+在上面的代码中，我们创建了一个Job类，并实例化了一个Job的实例对象j。打印j对象，j是一个Job对象，打印j._\_class_\_，可以知道j是Job类的对象。我们再打印Job，Job是一个类，打印Job._\_class__，我们看到Job是type类的对象。type函数通常用来查看一个变量或对象的类型，所以我们继续打印type(Job)，发现Job类的类型也是type。
 
 这说明，我们创建的Job类是type的实例对象。因为type函数实际上是一个元类。元类是制造类的工厂，是一个类。
 
@@ -109,13 +109,13 @@ list_b [0, 1, 2, 3, 4]
 list_b <class 'list'>
 list_b <class 'type'>
 ```
-我们例举了直接声明定义一个字符串变量和通过类的方式来实例化一个字符串，直接声明定义一个列表变量和通过类的方式来实例化一个列表。两种方式的结果是一样的，打印字符串的__class__属性，他们都是str类的对象，打印列表的__class__，他们都是list类的对象。
+我们例举了直接声明定义一个字符串变量和通过类的方式来实例化一个字符串，直接声明定义一个列表变量和通过类的方式来实例化一个列表。两种方式的结果是一样的，打印字符串的_\_class__属性，他们都是str类的对象，打印列表的_\_class__，他们都是list类的对象。
 
 首先，这说明str和list都是类，其次，在我们平时定义字符串或列表时，str和list的作用是一个创建字符串或列表的“机器”。
 
 其实，str、list、int、tuple这些Python中的数据类型关键字都是类，我们创建一个变量就是实例化一个变量对象。
 
-我们在打印str.__class__和list.__class__，发现他们都是type类的对象。
+我们在打印str._\_class\_\_和list.\_\_class__，发现他们都是type类的对象。
 
 在Python中，当我们创建一个类的时候，创建的这个类就是type的对象。这包括整数、字符串、函数以及类 。它们全部都是对象，⽽且它们都是从⼀个类创建⽽来，这个类就是type。
 
@@ -201,7 +201,7 @@ English
 <class '__main__.Study'>
 <class '__main__.OurMetaClass'>
 ```
-我们定义了一个OurMetaClass类，这个类继承了type类，然后重写了type的__new__方法。在定义另一个类Study类的时候，指定metaclass=OurMetaClass，这时候OurMetaClass是一个元类，Study类是OurMetaClass的实例。
+我们定义了一个OurMetaClass类，这个类继承了type类，然后重写了type的_\_new__方法。在定义另一个类Study类的时候，指定metaclass=OurMetaClass，这时候OurMetaClass是一个元类，Study类是OurMetaClass的实例。
 
 我们可以正常使用Study类中的属性和方法，可以正常实例化一个Study类的对象s，s是一个对象，s是Study类的实例，而Study类是OurMetaClass类的实例。
 

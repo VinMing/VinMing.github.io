@@ -1,14 +1,13 @@
 ---
 layout:     post
-title:      Hello 2020
-subtitle:    "\"Hello World, Hello Blog\""
-date:       2020-01-28
+title:      Python Logging Handlers
+subtitle:    "\"python logging handlers\""
+date:       2020-06-12
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - 生活
-
+    - Logging
 ---
 ## 前言
 
