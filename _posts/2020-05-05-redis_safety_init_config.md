@@ -100,20 +100,16 @@ Port 6379
 为了保证安全，您应该阻止其他用户添加新的公钥。
 
 - 将 authorized_keys 的权限设置为对拥有者只读，其他用户没有任何权限：
-
+	```
+	chmod 400 ~/.ssh/authorized_keys
 ```
-chmod 400 ~/.ssh/authorized_keys
-```
-
 - 为保证 authorized_keys 的权限不会被改掉，您还需要设置该文件的 immutable 位权限:
-
-```
+	```
 chattr +i ~/.ssh/authorized_keys
 ```
 
 - 然而，用户还可以重命名 ~/.ssh，然后新建新的 ~/.ssh 目录和 authorized_keys 文件。要避免这种情况，需要设置 ~./ssh 的 immutable 权限：
-
-```
+	```
 chattr +i ~/.ssh
 ```
 

@@ -21,8 +21,8 @@ Codename（代号）:	字母
 ## 环境
 #### 系统环境
 ```sh
-每个人的操作系统版本都不一致，通过以下两个命令行查询
-以deepin为例。
+# 每个人的操作系统版本都不一致，通过以下两个命令行查询
+# 以deepin为例。
 $ cat /etc/os-release
 PRETTY_NAME="Deepin 20 Beta"
 NAME="Deepin"
@@ -64,7 +64,7 @@ Ubuntu版本的命名规则是根据正式版发行的年月命名，Ubuntu 8.10
 
 ### Deepin
 
-The release cycle has followed various schedules but currently aims at four releases per year. Releases are delayed if the work of development and testing has not been completed. 
+发布周期遵循不同的时间表，但目前的目标是每年发布四次。如果开发和测试工作尚未完成，则发布将被延迟。
 
 | Version              | Release date                                                 | Desktop environment                                          | Underlying system                                            |
 | :------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -110,11 +110,9 @@ The release cycle has followed various schedules but currently aims at four rele
 
 ## 参考
 
-[Deepin](https://en.wikipedia.org/wiki/Deepin)
+[Deepin](https://en.wikipedia.org/wiki/Deepin) 
 
 [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu)
-
-
 
 ## 后记
 
