@@ -11,7 +11,7 @@ tags:
 ---
 ## 前言
 
-假设已经知道了[logging基本使用]()
+假设已经知道了[logging基本使用](https://vinming.github.io/2020/06/12/logging_basic_use/)
 
 实际工作中，对于日志是使用不仅限于输出那么简单，还要处理日益堆积的日志文件，logging 模块中实现了很多日志处理的方法，可以帮我们实现日志的管理功能。
 
@@ -227,8 +227,8 @@ log_pro2: logger2.info('aaa')  139747377038096
 
 这样创建出来的 logger 对象已经实现单例了，如果想连类的对象也实现单例，写一个单例装饰器装饰这个类就行了。
 
-[单例参考]()
+[单例参考](https://vinming.github.io/2020/06/12/python_singleton_pattern/)
 
-[线程安全参考]()
+[线程安全参考](https://vinming.github.io/2020/06/14/python_threading/)
 
 

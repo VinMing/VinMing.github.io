@@ -195,7 +195,7 @@ NoneType: None
 
 ## 进阶
 以上只是logging的基础用法，到项目长期运行，日志文件很大，或者很多，该如何处理呢？
-[logging模块切分和轮转日志]()
+[logging模块切分和轮转日志](https://vinming.github.io/2020/06/12/logging_handlers/)
 
 ## 参考
 
