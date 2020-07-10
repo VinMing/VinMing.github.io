@@ -53,6 +53,10 @@ git fetch
 git checkout origin/dev /to/path/
 ```
 
+
+
+
+
 # 问题场景：
 
 同事B下拉同事A远程仓库代码，并添加自己所开发的模块，想同步代码到同事A的远程仓库

@@ -27,6 +27,13 @@ Release:	18.04
 Codename:	bionic
 Linux version :       5.3.0-46-generic ( buildd@lcy01-amd64-013 ) 
 Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
+
+Distributor ID:	Deepin
+Description:	Deepin 20 Beta
+Release:	20 Beta
+Codename:	n/a
+Linux version :     5.3.0-3-amd64 (debian-kernel@lists.debian.org)
+Gcc version:        8.3.0 (Debian 8.3.0-6)
 ```
 #### 软件信息
 ```text
@@ -36,7 +43,7 @@ version :
 
 ## 正文
 
-![Image text](/img/Ubuntu_filename.png)
+
 
 接下来说说搭建这个博客的技术细节。  
 
@@ -60,5 +67,7 @@ version :
 ## 后记
 
 @[TOC](这里写自定义目录标题)
+
+![Image text](/img/Ubuntu_filename.png)
 
 

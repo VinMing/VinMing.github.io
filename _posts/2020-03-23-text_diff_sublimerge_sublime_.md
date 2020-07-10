@@ -8,8 +8,6 @@ header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
     - Sublime
-    - Sublimerge
-
 ---
 ## 前言
 Sublime神器居然还有文本对比功能－[sublimerge](http://www.sublimerge.com/)

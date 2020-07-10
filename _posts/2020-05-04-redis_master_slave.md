@@ -45,16 +45,61 @@ version :
 
 本次主要介绍一主二仆，和反客为主的操作，薪火相传不做介绍。哨兵模式后面专门写一篇进行介绍！
 
+本教程是使用docker环境搭建redis群集主从复制模式。
+
 环境说明：
 
-| 名称       | 对应IP          |
-| ---------- | --------------- |
-| 主机master | 192.168.10.153  |
-| 从机slave  | 192.168.152.133 |
+| 名称    | 对应IP          | redis版本 |
+| ------- | --------------- | --------- |
+| master  | 192.168.10.153  |           |
+| slave_1 | 192.168.152.133 |           |
+| slave_2 |                 |           |
 
-搭建：
+以上环境在是docker环境生成
 
 
+
+## 正文
+
+一、下拉指定版本镜像
+
+下来两个版本的redis 镜像：
+
+```sh
+docker pull redis:6.0.5
+docker pull redis:5.0.9
+```
+
+二、修改redis一主二从配置
+
+测试
+
+```sh
+# master 创建启动 
+docker run -dit --name master ubuntu bash 
+# 进入master容器 
+docker exec -it master bash
+```
+
+
+
+
+
+启动测试
+
+```
+docker run -v /myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf --name myredis redis redis-server /usr/local/etc/redis/redis.conf
+```
+
+查看主从环境
+
+
+
+(小插曲)反客为主
+
+redis平滑升级
+
+redis主从复制原理
 
 
 

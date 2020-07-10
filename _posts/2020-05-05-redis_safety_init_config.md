@@ -7,7 +7,7 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - Redis-Config
+    - Redis
 ---
 ## 前言
 
@@ -32,7 +32,7 @@ version:
 ## 正文
 
 默认知道redis.xx.conf的相关配置的！如果不知道，请看：
-[redis_common_config]()
+[redis_common_config](https://vinming.github.io/2020/01/04/redis_common_config/)
 
 ### 配置redis防范攻击措施
 
@@ -102,14 +102,15 @@ Port 6379
 - 将 authorized_keys 的权限设置为对拥有者只读，其他用户没有任何权限：
 	```
 	chmod 400 ~/.ssh/authorized_keys
+	```
 ```
 - 为保证 authorized_keys 的权限不会被改掉，您还需要设置该文件的 immutable 位权限:
-	```
+```
 chattr +i ~/.ssh/authorized_keys
 ```
 
 - 然而，用户还可以重命名 ~/.ssh，然后新建新的 ~/.ssh 目录和 authorized_keys 文件。要避免这种情况，需要设置 ~./ssh 的 immutable 权限：
-	```
+```
 chattr +i ~/.ssh
 ```
 
@@ -118,7 +119,7 @@ chattr +i ~/.ssh
 如果正常业务中Redis服务需要被其他服务器来访问，可以设置iptables策略仅允许指定的IP来访问Redis服务。
 
 修改redis的配置文件，将所有bind信息全部屏蔽。
-```config
+​```config
 # bind 192.168.1.8
 # bind 127.0.0.1
 ```

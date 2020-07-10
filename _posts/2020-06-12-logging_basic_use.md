@@ -97,7 +97,7 @@ logger 对象有 debug() 、info() 等5个基本的日志输出方法，分别�
 
 8. handles： 定义处理器，用来创建 Handler 对象，不能和 filename 、stream 参数一起使用，否则也会抛出 ValueError 异常
 
-### 四、logging 的日志级别
+### 四、logging 的日志级别 level
 在 logging 中，日志主要有5个等级。
 1. DEBUG： 对应数值10，打印调式信息。
 
@@ -117,7 +117,7 @@ logger 对象有 debug() 、info() 等5个基本的日志输出方法，分别�
 
 关于日志级别，我们也可以自定义，自定义日志等级时注意不要和默认的日志等级数值相同。设置日志输出等级的时候，也可以通过数值来指定，只有大于数值的日志等级会被输出(参考上面的代码)。
 
-### 五、logging 日志的输出格式
+### 五、logging 日志的输出格式 format
   1. asctime：日志的输出时间，默认为 YYYY-mm-DD HH:MM:SS,SSS，如： 2019-10-02 21:29:41,016，一直精确到毫秒。可以额外指定 datefmt 参数来指定该变量的格式
 
   2. name： 日志对象的名称
