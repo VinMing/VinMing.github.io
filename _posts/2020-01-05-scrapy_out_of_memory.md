@@ -7,7 +7,7 @@ author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    -　Scrapy
+    - Scrapy
 ---
 ## 前言
 
@@ -26,7 +26,7 @@ Gcc version:         7.5.0  ( Ubuntu 7.5.0-3ubuntu1~18.04 )
 #### 软件信息
 ```text
 version : 	
-     
+     None
 ```
 
 ## 正文
@@ -58,5 +58,4 @@ version :
  2.orm的写法是否使用了缓存，如果是，请寻找不缓存的查询方法，或者定时手动清理orm缓存。
 
  3.看看数据库驱动的特性里是否存在缓存结果的特性，是的话，可以看看能否关闭并在查询的时候只查出自己需要的字段，不要查出所有字段。
-
 
