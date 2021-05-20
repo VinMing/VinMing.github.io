@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      Mysql debug
+title:      MySQL debug
 subtitle:    "\"MySQL debug\""
 date:       2020-04-10
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - Mysql
+    - MySQL
 ---
 
 ## 前言

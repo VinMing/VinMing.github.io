@@ -1,14 +1,13 @@
 ---
 layout:     post
-title:      Ubuntu install Mysql
-subtitle:    "\"Ubuntu install Mysql\""
+title:      Ubuntu install MySQL
+subtitle:    "\"Ubuntu install MySQL\""
 date:       2020-04-10
 author:     Stephen
 header-img: img/post-bg-2015.jpg
 catalog: true
 tags:
-    - Ubuntu
-    - Mysql
+    - MySQL
 ---
 
 ## 前言
@@ -92,5 +91,4 @@ mysql -u root -p
 ## 后记
 
 @[TOC](这里写自定义目录标题)
-
 
