@@ -100,31 +100,32 @@ Port 6379
 为了保证安全，您应该阻止其他用户添加新的公钥。
 
 - 将 authorized_keys 的权限设置为对拥有者只读，其他用户没有任何权限：
-	```
+	
+	```sh
 	chmod 400 ~/.ssh/authorized_keys
 	```
-```
+	
 - 为保证 authorized_keys 的权限不会被改掉，您还需要设置该文件的 immutable 位权限:
-```
-chattr +i ~/.ssh/authorized_keys
-```
-
-- 然而，用户还可以重命名 ~/.ssh，然后新建新的 ~/.ssh 目录和 authorized_keys 文件。要避免这种情况，需要设置 ~./ssh 的 immutable 权限：
-```
-chattr +i ~/.ssh
-```
-
+	```sh
+	chattr +i ~/.ssh/authorized_keys
+	```
+	
+-  然而，用户还可以重命名 ~/.ssh，然后新建新的 ~/.ssh 目录和 authorized_keys 文件。要避免这种情况，需要设置 ~./ssh 的 immutable 权限：
+	```sh
+	chattr +i ~/.ssh
+	```
 #### 七、设置防火墙策略　开放外网访问，限制已知ip访问
 
 如果正常业务中Redis服务需要被其他服务器来访问，可以设置iptables策略仅允许指定的IP来访问Redis服务。
 
 修改redis的配置文件，将所有bind信息全部屏蔽。
-​```config
+```tex
 # bind 192.168.1.8
 # bind 127.0.0.1
 ```
 屏蔽掉 bind，即允许本机以外的机器访问它
 修改完成后，需要重新启动redis服务。
+
 ``` sh
 redis-server redis.conf
 ```
