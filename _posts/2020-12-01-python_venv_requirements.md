@@ -38,6 +38,7 @@ version :
 
    在 python3 中，虚拟环境由标准库中的 venv 包原生支持，创建venv虚拟环境的命令格式如下：
    `python3 -m venv virtual-environment-name`
+
    -m venv 选项的作用是以独立的脚本运行标准库中的 venv 包，后面的参数为虚拟环境的名称。
    本例子为创建一个名为 venv 的虚拟环境，命令如下：
    `python3 -m venv venv`
@@ -55,18 +56,18 @@ version :
    venv\Scripts\deactives
    ```
 
-### 2. requirements.txt
-   #### 依赖包
-   ##### 描述问题：
+### 2. requirements.txt依赖包
+
+   #### 描述问题：
 
    在对项目进行打包时，经常需要编写requirements.txt(一个项目所需要的模块)
    当项目太大的时候，手动添加模块和对应的版本的工作量就大起来了。
 
-   ##### 问题：
+   #### 问题：
 
    python自动python 导出一个项目所需要的模块及其对应版本
 
-   ##### 解决方案：
+   #### 解决方案：
 
    - **使用 pip freeze**
 

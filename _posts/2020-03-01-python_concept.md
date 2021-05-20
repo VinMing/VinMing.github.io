@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Hello 2020
+title:      Python Concept
 subtitle:    "\"Python concept\""
 date:       2020-03-01
 author:     Stephen
