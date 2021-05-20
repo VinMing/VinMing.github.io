@@ -15,7 +15,7 @@ tags:
 
 ## 前言
 
-Redis Desktop Manager（RDM）,这个工具操作redis还是蛮好用的，[RDM官网](https://github.com/uglide/RedisDesktopManager)介绍
+Redis Desktop Manager（RDM）,这个工具操作redis还是蛮好用的，[RDM官网](https://github.com/uglide/RedisDesktopManager)
 
 使用deb包安装0.8版本64位的RDM[官网deb下载](https://github.com/uglide/RedisDesktopManager/releases/download/0.8.3/redis-desktop-manager_0.8.3-120_amd64.deb)
 
