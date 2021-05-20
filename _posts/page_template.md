@@ -70,4 +70,3 @@ version :
 
 ![Image text](/img/Ubuntu_filename.png)
 
-

@@ -59,11 +59,11 @@ OpenSSL version: OpenSSL 1.1.1c  28 May 2019
 
 环境说明：
 
-| 名称    | 对应IP          | redis版本 |
-| ------- | --------------- | --------- |
-| master  | 192.168.10.153  |           |
-| slave_1 | 192.168.152.133 |           |
-| slave_2 |                 |           |
+| 名称    | 对应IP      | redis版本                                                    |
+| ------- | ----------- | ------------------------------------------------------------ |
+| master  | 172.19.0.10 | Redis server v=6.0.10 sha=00000000:0 malloc=jemalloc-5.1.0 bits=64 build=66898bb7acd47e81 |
+| slave_1 | 172.19.0.11 | Redis server v=6.0.10 sha=00000000:0 malloc=jemalloc-5.1.0 bits=64 build=66898bb7acd47e81 |
+| slave_2 | 172.19.0.12 | Redis server v=6.0.10 sha=00000000:0 malloc=jemalloc-5.1.0 bits=64 build=66898bb7acd47e81 |
 
 以上环境在是docker环境生成
 
@@ -149,7 +149,7 @@ rename-command KEYS ""
 #slaveof <masterip> <masterport>
 # 此处masterip所指定的redis-server-master是运行master节点的容器名
 # Docker容器间可以使用容器名代替实际的IP地址来通信
-slaveof 127.0.0.1 6379
+slaveof 172.19.0.10 6379
 
 # 设定连接主节点所使用的密码
 masterauth "123456"
@@ -192,7 +192,7 @@ rename-command KEYS ""
 #slaveof <masterip> <masterport>
 # 此处masterip所指定的redis-server-master是运行master节点的容器名
 # Docker容器间可以使用容器名代替实际的IP地址来通信
-slaveof 127.0.0.1 6379
+slaveof 172.19.0.10 6379
 
 # 设定连接主节点所使用的密码
 masterauth "123456"
@@ -205,8 +205,6 @@ masterauth "123456"
 新建docker-compose.yml文件
 
 ```
----
-
 version: '3'
 
 services:
@@ -214,17 +212,20 @@ services:
   redis-server-master:
     image: redis
     container_name: redis-server-master
+    networks: 
+        app_net:
+          ipv4_address: 172.19.0.10
     restart: always
     # 为了规避Docker中端口映射可能带来的问题
     # 这里选择使用host网络
-    network_mode: host
+    # network_mode: host
     # 指定时区，保证容器内时间正确
     environment:
       TZ: "Asia/Shanghai"
     volumes:
       # 映射配置文件和数据目录
       - ./redis-master.conf:/usr/local/etc/redis/redis.conf
-      - ./data/redis-master:/data
+    #   - ./data/redis-master:/data
     sysctls:
       # 必要的内核参数
       net.core.somaxconn: '511'
@@ -233,15 +234,18 @@ services:
   redis-server-slave-1:
     image: redis
     container_name: redis-server-slave-1
+    networks: 
+        app_net:
+          ipv4_address: 172.19.0.11
     restart: always
-    network_mode: host
+    # network_mode: host
     depends_on:
       - redis-server-master
     environment:
       TZ: "Asia/Shanghai"
     volumes:
       - ./redis-slave1.conf:/usr/local/etc/redis/redis.conf
-      - ./data/redis-slave-1:/data
+    #   - ./data/redis-slave-1:/data
     sysctls:
       net.core.somaxconn: '511'
     command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
@@ -249,18 +253,30 @@ services:
   redis-server-slave-2:
     image: redis
     container_name: redis-server-slave-2
+    networks: 
+        app_net:
+          ipv4_address: 172.19.0.12
     restart: always
-    network_mode: host
+    # network_mode: host
     depends_on:
       - redis-server-master
     environment:
       TZ: "Asia/Shanghai"
     volumes:
       - ./redis-slave2.conf:/usr/local/etc/redis/redis.conf
-      - ./data/redis-slave-2:/data
+    #   - ./data/redis-slave-2:/data
     sysctls:
       net.core.somaxconn: '511'
     command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+
+
+networks: 
+    app_net:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.19.0.0/24
 ```
 
 ##### 启动容器
@@ -269,80 +285,92 @@ services:
 
 ```sh
 $ docker-compose up
-Creating redis-server-master ... done
-Creating redis-server-slave-1 ... done
-Creating redis-server-slave-2 ... done
-Attaching to redis-server-master, redis-server-slave-2, redis-server-slave-1
-redis-server-master     | 1:C 20 May 2021 11:49:26.661 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo       
-redis-server-master     | 1:C 20 May 2021 11:49:26.662 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
-redis-server-master     | 1:C 20 May 2021 11:49:26.662 # Configuration loaded
-redis-server-master     | 1:M 20 May 2021 11:49:26.666 * Running mode=standalone, port=6379.
-redis-server-master     | 1:M 20 May 2021 11:49:26.666 # Server initialized
-redis-server-master     | 1:M 20 May 2021 11:49:26.666 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf 
-and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-redis-server-master     | 1:M 20 May 2021 11:49:26.666 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run 
-the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
-redis-server-master     | 1:M 20 May 2021 11:49:26.667 * Ready to accept connections
-redis-server-master     | 1:M 20 May 2021 11:49:27.189 * Replica 127.0.0.1:6381 asks for synchronization     
-redis-server-master     | 1:M 20 May 2021 11:49:27.189 * Full resync requested by replica 127.0.0.1:6381     
-redis-server-master     | 1:M 20 May 2021 11:49:27.189 * Replication backlog created, my new replication IDs 
-are 'fb988d4415776e5c74073176824df751a8378498' and '0000000000000000000000000000000000000000'
-redis-server-master     | 1:M 20 May 2021 11:49:27.189 * Starting BGSAVE for SYNC with target: disk
-redis-server-master     | 1:M 20 May 2021 11:49:27.192 * Background saving started by pid 18
-redis-server-slave-2    | 1:C 20 May 2021 11:49:27.181 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo       
-redis-server-slave-2    | 1:C 20 May 2021 11:49:27.181 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
-redis-server-slave-2    | 1:C 20 May 2021 11:49:27.181 # Configuration loaded
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.184 * Running mode=standalone, port=6381.
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.184 # Server initialized
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.184 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf 
-and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.184 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run 
-the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.186 * Ready to accept connections
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.186 * Connecting to MASTER 127.0.0.1:6379
-redis-server-master     | 18:C 20 May 2021 11:49:27.208 * DB saved on disk
-redis-server-master     | 18:C 20 May 2021 11:49:27.209 * RDB: 8 MB of memory used by copy-on-write
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.187 * MASTER <-> REPLICA sync started
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.187 * Non blocking connect for SYNC fired the event.      
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.187 * Master replied to PING, replication can continue... 
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.188 * Partial resynchronization not possible (no cached master)
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.193 * Full resync from master: fb988d4415776e5c74073176824df751a8378498:0
-redis-server-slave-1    | 1:C 20 May 2021 11:49:27.215 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo       
-redis-server-slave-1    | 1:C 20 May 2021 11:49:27.215 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
-redis-server-slave-1    | 1:C 20 May 2021 11:49:27.215 # Configuration loaded
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.217 * Running mode=standalone, port=6380.
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.217 # Server initialized
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.217 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf 
-and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.217 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run 
-the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
-redis-server-master     | 1:M 20 May 2021 11:49:27.220 * Replica 127.0.0.1:6380 asks for synchronization     
-redis-server-master     | 1:M 20 May 2021 11:49:27.220 * Full resync requested by replica 127.0.0.1:6380     
-redis-server-master     | 1:M 20 May 2021 11:49:27.220 * Waiting for end of BGSAVE for SYNC
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.218 * Ready to accept connections
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.218 * Connecting to MASTER 127.0.0.1:6379
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.219 * MASTER <-> REPLICA sync started
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.219 * Non blocking connect for SYNC fired the event.      
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.219 * Master replied to PING, replication can continue... 
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.220 * Partial resynchronization not possible (no cached master)
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.220 * Full resync from master: fb988d4415776e5c74073176824df751a8378498:0
-redis-server-master     | 1:M 20 May 2021 11:49:27.269 * Background saving terminated with success
-redis-server-master     | 1:M 20 May 2021 11:49:27.270 * Synchronization with replica 127.0.0.1:6381 succeeded
-redis-server-master     | 1:M 20 May 2021 11:49:27.270 * Synchronization with replica 127.0.0.1:6380 succeeded
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: receiving 176 bytes from master to disk
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: Flushing old data
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: Loading DB in memory
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: receiving 176 bytes from master to disk
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: Flushing old data
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.270 * MASTER <-> REPLICA sync: Loading DB in memory
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.279 * Loading RDB produced by version 6.0.10
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.279 * RDB age 0 seconds
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.279 * RDB memory usage when created 1.83 Mb
-redis-server-slave-2    | 1:S 20 May 2021 11:49:27.280 * MASTER <-> REPLICA sync: Finished with success
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.279 * Loading RDB produced by version 6.0.10
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.279 * RDB age 0 seconds
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.279 * RDB memory usage when created 1.83 Mb
-redis-server-slave-1    | 1:S 20 May 2021 11:49:27.280 * MASTER <-> REPLICA sync: Finished with success
+redis-server-master is up-to-date
+Starting redis-server-slave-1 ... done
+Starting redis-server-slave-2 ... done
+Attaching to redis-server-master, redis-server-slave-1, redis-server-slave-2
+redis-server-slave-1    | 1:C 20 May 2021 15:12:03.282 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-server-slave-1    | 1:C 20 May 2021 15:12:03.283 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
+redis-server-slave-1    | 1:C 20 May 2021 15:12:03.283 # Configuration loaded
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.287 * Running mode=standalone, port=6380.
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.287 # Server initialized
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.287 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or 
+run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.287 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * Loading RDB produced by version 6.0.10
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * RDB age 12156 seconds
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * RDB memory usage when created 1.83 Mb
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * DB loaded from disk: 0.000 seconds
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * Before turning into a replica, using my own master parameters to synthesize a cached master: I may be able to synchronize with the new master with just a partial transfer.
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * Ready to accept connections
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.291 * Connecting to MASTER 172.19.0.10:6379
+redis-server-slave-2    | 1:C 20 May 2021 15:12:03.298 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-server-slave-2    | 1:C 20 May 2021 15:12:03.298 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
+redis-server-slave-2    | 1:C 20 May 2021 15:12:03.298 # Configuration loaded
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.298 * MASTER <-> REPLICA sync started
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.299 * Non blocking connect for SYNC fired the event.
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.299 * Master replied to PING, replication can continue...
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.300 * Trying a partial resynchronization (request fb988d4415776e5c74073176824df751a8378498:1).
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.301 * Running mode=standalone, port=6381.
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.302 # Server initialized
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.302 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or 
+run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.302 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * Loading RDB produced by version 6.0.10
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * RDB age 12156 seconds
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * RDB memory usage when created 1.83 Mb
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * DB loaded from disk: 0.000 seconds
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * Before turning into a replica, using my own master parameters to synthesize a cached master: I may be able to synchronize with the new master with just a partial transfer.
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.304 * Ready to accept connections
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.305 * Connecting to MASTER 172.19.0.10:6379
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.308 * MASTER <-> REPLICA sync started
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.308 * Non blocking connect for SYNC fired the event.
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.304 * Full resync from master: e6e8fc293efae9825add50695f68d86b79df8bed:0
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.304 * Discarding previously cached master state.
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.309 * Master replied to PING, replication can continue...
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.317 * Trying a partial resynchronization (request fb988d4415776e5c74073176824df751a8378498:1).
+redis-server-master     | 1:C 20 May 2021 15:10:30.499 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-server-master     | 1:C 20 May 2021 15:10:30.499 # Redis version=6.0.10, bits=64, commit=00000000, modified=0, pid=1, just started
+redis-server-master     | 1:C 20 May 2021 15:10:30.499 # Configuration loaded
+redis-server-master     | 1:M 20 May 2021 15:10:30.507 * Running mode=standalone, port=6379.
+redis-server-master     | 1:M 20 May 2021 15:10:30.507 # Server initialized
+redis-server-master     | 1:M 20 May 2021 15:10:30.507 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or 
+run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis-server-master     | 1:M 20 May 2021 15:10:30.507 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo madvise > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled (set to 'madvise' or 'never').
+redis-server-master     | 1:M 20 May 2021 15:10:30.509 * Loading RDB produced by version 6.0.10
+redis-server-master     | 1:M 20 May 2021 15:10:30.509 * RDB age 12063 seconds
+redis-server-master     | 1:M 20 May 2021 15:10:30.509 * RDB memory usage when created 1.83 Mb
+redis-server-master     | 1:M 20 May 2021 15:10:30.509 * DB loaded from disk: 0.001 seconds
+redis-server-master     | 1:M 20 May 2021 15:10:30.509 * Ready to accept connections
+redis-server-master     | 1:M 20 May 2021 15:12:03.300 * Replica 172.19.0.11:6380 asks for synchronization
+redis-server-master     | 1:M 20 May 2021 15:12:03.300 * Partial resynchronization not accepted: Replication ID mismatch (Replica asked for 'fb988d4415776e5c74073176824df751a8378498', my replication IDs are 'e1f56e12895196661bcd0a99387317f5823df291' and '0000000000000000000000000000000000000000')
+redis-server-master     | 1:M 20 May 2021 15:12:03.300 * Replication backlog created, my new replication IDs are 'e6e8fc293efae9825add50695f68d86b79df8bed' and '0000000000000000000000000000000000000000'
+redis-server-master     | 1:M 20 May 2021 15:12:03.300 * Starting BGSAVE for SYNC with target: disk
+redis-server-master     | 1:M 20 May 2021 15:12:03.303 * Background saving started by pid 19
+redis-server-master     | 1:M 20 May 2021 15:12:03.317 * Replica 172.19.0.12:6381 asks for synchronization
+redis-server-master     | 1:M 20 May 2021 15:12:03.317 * Partial resynchronization not accepted: Replication ID mismatch (Replica asked for 'fb988d4415776e5c74073176824df751a8378498', my replication IDs are 'e6e8fc293efae9825add50695f68d86b79df8bed' and '0000000000000000000000000000000000000000')
+redis-server-master     | 1:M 20 May 2021 15:12:03.317 * Waiting for end of BGSAVE for SYNC
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.322 * Full resync from master: e6e8fc293efae9825add50695f68d86b79df8bed:0
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.322 * Discarding previously cached master state.
+redis-server-master     | 19:C 20 May 2021 15:12:03.323 * DB saved on disk
+redis-server-master     | 19:C 20 May 2021 15:12:03.323 * RDB: 8 MB of memory used by copy-on-write
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.353 * MASTER <-> REPLICA sync: receiving 176 bytes from master to disk
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.353 * MASTER <-> REPLICA sync: Flushing old data
+redis-server-master     | 1:M 20 May 2021 15:12:03.353 * Background saving terminated with success
+redis-server-master     | 1:M 20 May 2021 15:12:03.353 * Synchronization with replica 172.19.0.11:6380 succeeded
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.354 * MASTER <-> REPLICA sync: receiving 176 bytes from master to disk
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.355 * MASTER <-> REPLICA sync: Loading DB in memory
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.354 * MASTER <-> REPLICA sync: Flushing old data
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.355 * MASTER <-> REPLICA sync: Loading DB in memory
+redis-server-master     | 1:M 20 May 2021 15:12:03.354 * Synchronization with replica 172.19.0.12:6381 succeeded
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.361 * Loading RDB produced by version 6.0.10
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.361 * RDB age 0 seconds
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.361 * RDB memory usage when created 1.83 Mb
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.361 * Loading RDB produced by version 6.0.10
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.361 * RDB age 0 seconds
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.361 * RDB memory usage when created 1.83 Mb
+redis-server-slave-2    | 1:S 20 May 2021 15:12:03.362 * MASTER <-> REPLICA sync: Finished with success
+redis-server-slave-1    | 1:S 20 May 2021 15:12:03.362 * MASTER <-> REPLICA sync: Finished with success
 ```
 
 打印日志出现`MASTER <-> REPLICA sync: Finished with success`这个标示初步同步成功，如果出现报错，请自行分析出现原因，此处不在讲述。
