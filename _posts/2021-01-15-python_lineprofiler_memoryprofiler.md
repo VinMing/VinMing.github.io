@@ -36,11 +36,49 @@ version :
 
 ## 正文
 
+待测试代码：
+
+```python
+#coding=utf8
+
+def sum_num(max_num):
+    total = 0
+    for i in range(max_num):
+        total += i
+    return total
+
+def test():
+    total = 0
+    for i in range(40000):
+        total += i
+
+    t1 = sum_num(10000000)
+    t2 = sum_num(200000)
+    t3 = sum_num(300000)
+    t4 = sum_num(400000)
+    t5 = sum_num(500000)
+    test2()
+
+    return total
+
+def test2():
+    total = 0
+    for i in range(40000):
+        total += i
+
+    t6 = sum_num(600000)
+    t7 = sum_num(700000)
+
+    return total
+
+test()
+```
+
 ### lineprofiler
 
 lineprofiler是一个对函数进行逐行性能分析的工具，可以参见[lineprofiler github]( https://github.com/rkern/line_profiler)项目说明
 
-### 示例
+#### 1、使用kernprof植入
 
 ```python
 #coding=utf8
@@ -52,7 +90,7 @@ def sum_num(max_num):
     return total
 
 
-@profile                     # 添加@profile 来标注分析哪个函数
+@profile
 def test():
     total = 0
     for i in range(40000):
@@ -111,9 +149,9 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
 
 hits（执行次数） 和 time（耗时） 值高的地方是有比较大优化空间的地方。
 
-使用API(推荐)
+#### 2、使用API(推荐)
 
-第一种方法是通过命令行分析，其实你还可以通过API来分析，line_profiler提供了和cProfile类似的API，
+通过命令行分析，其实你还可以通过API来分析，line_profiler提供了和cProfile类似的API，
 
 Code Example:
 
@@ -122,11 +160,15 @@ import line_profiler
 import sys
 
 
-# 上面的test函数
+"""
+上面的test函数
+"""
 prof = line_profiler.LineProfiler(test)
-prof.enable()  # 开始性能分析
+# 开始性能分析
+prof.enable()  
 test()
-prof.disable()  # 停止性能分析
+# 停止性能分析
+prof.disable()  
 prof.print_stats(sys.stdout)
 ```
 
@@ -155,10 +197,6 @@ Line #      Hits         Time  Per Hit   % Time  Line Contents
    291
    292         1         27.0     27.0      0.0      return total
 ```
-
-
-
-
 
 ### memoryprofiler
 
@@ -190,5 +228,5 @@ Line #    Mem usage    Increment   Line Contents
 
 
 ## 后记
-To be continued
+Done
 
