@@ -47,7 +47,7 @@ version:
 ##### 2. 大版本平滑升级（保存已有的key）
 
 大版本注释：例如从Redis 2.8升级到Redis 4.0。
-设置主从模式，备份主库到从库，再卸载主库安装新版本再同步到主库，详情请看[redis主从设置]()
+设置主从模式，备份主库到从库，再卸载主库安装新版本再同步到主库，详情请看[redis主从设置](https://vinming.github.io/2020/01/28/redis_master_slave/)
 
 #### 二、设置高强度密码(重启生效)
 
@@ -150,5 +150,4 @@ iptables -A INPUT -p TCP --dport 6379 -j REJECT
 ## 后记
 
 @[TOC](这里写自定义目录标题)
-
 
